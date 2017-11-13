@@ -6,9 +6,11 @@
   "author": "Josh Junon <junon@zeit.co>",
   "license": "MIT",
   "scripts": {
-    "install": "node ./install.js"
+    "install": "node ./install.js",
+    "uninstall": "node ./uninstall.js"
   },
   "files": [
-    "install.js"
+    "install.js",
+    "uninstall.js"
   ]
 }
