@@ -2,6 +2,8 @@
 
 No nonsense [Git hook](https://git-scm.com/docs/githooks) management.
 
+![](screenshot.png)
+
 ## Usage
 
 Install this module, preferably as a dev-dependency:
