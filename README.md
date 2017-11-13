@@ -50,5 +50,17 @@ Note that any `"scripts"` hooks supplant any corresponding `"git"` hooks. That i
 `{"scripts": {"git-pre-commit": "..."}}` hook and a `{"git": {"pre-commit": []}}` hook, the hook in `"scripts"`
 will be the only hook that is executed.
 
+## Why? There are hundreds of these?
+
+- No dependencies
+- Supports NPM, Yarn, &lt;insert package manager&gt; - this package will detect and use whatever package manager you installed it with&#42;
+- Tiny footprint - two script files and a couple of symlinks
+- Existing hook / anti-overwrite checks are very reliable since two proprietary scripts are added and all of 'our' hooks are just symlinks
+  to those, so there's virtually no way the uninstall script will mistake a pre-existing hook for its own
+
+> &#42;Caveat: The package manager needs to be npm compliant in terms of environment variables.
+> Worst case, define the environment variables `npm_node_execpath` (node binary) and `npm_execpath` (package manager entry point)
+> as environment variables prior to installing.
+
 # License
 Copyright &copy; 2017 by ZEIT, Inc. Released under the [MIT License](LICENSE).
