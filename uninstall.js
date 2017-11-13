@@ -11,7 +11,7 @@ function env(name) {
 
 const nodeBin = env('npm_node_execpath');
 const packageManagerBin = env('npm_execpath');
-const targetPackageDir = env('INIT_CWD');
+const targetPackageDir = process.cwd();
 
 const gitDir = path.join(targetPackageDir, '.git');
 const hooksDir = path.join(gitDir, 'hooks');
