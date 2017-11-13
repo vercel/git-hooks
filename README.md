@@ -50,7 +50,7 @@ Note that any `"scripts"` hooks supplant any corresponding `"git"` hooks. That i
 `{"scripts": {"git-pre-commit": "..."}}` hook and a `{"git": {"pre-commit": []}}` hook, the hook in `"scripts"`
 will be the only hook that is executed.
 
-## Why? There are hundreds of these?
+## Why? There are hundreds of these.
 
 - No dependencies
 - Supports NPM, Yarn, &lt;insert package manager&gt; - this package will detect and use whatever package manager you installed it with&#42;
