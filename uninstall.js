@@ -1,6 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
+const detectGitDir = require('./git-dir');
+
+// Hard to catch this output if there's no new-line after the script runs.
+process.on('exit', () => console.log());
+
 function env(name) {
 	if (!process.env[name]) {
 		throw new Error(`Required environment variable is empty or not defined - are you using an NPM-compatible package manager?: ${name}`);
@@ -11,15 +16,15 @@ function env(name) {
 
 const nodeBin = env('npm_node_execpath');
 const packageManagerBin = env('npm_execpath');
-const targetPackageDir = process.cwd();
 
-const gitDir = path.join(targetPackageDir, '.git');
-const hooksDir = path.join(gitDir, 'hooks');
+const gitDir = detectGitDir();
 
-if (!fs.existsSync(hooksDir) || !fs.statSync(hooksDir).isDirectory()) {
-	console.error('△  @zeit/git-hooks: .git/hooks directory not found or is not a directory; ignoring Git hook uninstallation:', gitDir);
+if (!gitDir || !fs.existsSync(gitDir) || !fs.statSync(gitDir).isDirectory()) {
+	console.error('△  @zeit/git-hooks: .git/hooks directory not found or is not a directory; ignoring Git hook uninstallation:', gitDir || 'reached filesystem boundary (root or drive)');
 	process.exit(0);
 }
+
+const hooksDir = path.join(gitDir, 'hooks');
 
 // Uninstall each of the hooks
 function uninstallHook(name) {
@@ -72,6 +77,3 @@ removeIfExists(path.join(hooksDir, '_do_hook'));
 removeIfExists(path.join(hooksDir, '_detect_package_hooks'));
 
 console.error('△  @zeit/git-hooks: hooks uninstalled successfully');
-
-// Hard to catch this output if there's no new-line after the script runs.
-process.on('exit', () => console.log());

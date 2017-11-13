@@ -11,6 +11,7 @@
   },
   "files": [
     "install.js",
-    "uninstall.js"
+    "uninstall.js",
+    "git-dir.js"
   ]
 }
