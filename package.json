@@ -5,6 +5,7 @@
   "repository": "zeit/git-hooks",
   "author": "Josh Junon <junon@zeit.co>",
   "license": "MIT",
+  "main": "null.js",
   "scripts": {
     "install": "node ./install.js",
     "uninstall": "node ./uninstall.js"
@@ -12,6 +13,7 @@
   "files": [
     "install.js",
     "uninstall.js",
-    "git-dir.js"
+    "git-dir.js",
+    "null.js"
   ]
 }
