@@ -63,4 +63,4 @@ will be the only hook that is executed.
 > as environment variables prior to installing.
 
 # License
-Copyright &copy; 2017 by ZEIT, Inc. Released under the [MIT License](LICENSE).
+Copyright &copy; 2018 by ZEIT, Inc. Released under the [MIT License](LICENSE).
