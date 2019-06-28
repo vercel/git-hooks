@@ -1,7 +1,7 @@
 {
   "name": "@zeit/git-hooks",
   "version": "0.1.4",
-  "description": "No nonsens Git hook management",
+  "description": "No nonsense Git hook management",
   "repository": "zeit/git-hooks",
   "author": "Josh Junon <junon@zeit.co>",
   "license": "MIT",
