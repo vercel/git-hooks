@@ -34,7 +34,7 @@ function uninstallHook(name) {
 		return;
 	}
 
-	const isOneOfOurs = fs.lstatSync(hookPath).isSymbolicLink() && fs.readlinkSync(hookPath) === './_do_hook';
+	const isOneOfOurs = fs.lstatSync(hookPath).isSymbolicLink() && fs.readlinkSync(hookPath) === './_do_hook.cjs';
 
 	if (!isOneOfOurs) {
 		console.error(`△  @zeit/git-hooks: hook '${name}' appears to be a user hook; skipping: ${hookPath}`);
@@ -73,7 +73,7 @@ function removeIfExists(path) {
 	}
 }
 
-removeIfExists(path.join(hooksDir, '_do_hook'));
-removeIfExists(path.join(hooksDir, '_detect_package_hooks'));
+removeIfExists(path.join(hooksDir, '_do_hook.cjs'));
+removeIfExists(path.join(hooksDir, '_detect_package_hooks.cjs'));
 
 console.error('△  @zeit/git-hooks: hooks uninstalled successfully');
