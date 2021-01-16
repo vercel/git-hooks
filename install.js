@@ -49,12 +49,12 @@ export ZEIT_GITHOOKS_RUNNING=1
 
 arg0="$(basename \${0})"
 
-if [[ "\${arg0}" == "_do_hook" ]]; then
+if [[ "\${arg0}" == "_do_hook.cjs" ]]; then
 	echo "You probably didn't mean to call this directly." >&2
 	exit 2
 fi
 
-"${nodeBin}" "$(dirname "\${0}")/_detect_package_hooks" "\${arg0}" | while IFS='' read -r hook || [[ -n "\${hook}" ]]; do
+"${nodeBin}" "$(dirname "\${0}")/_detect_package_hooks.cjs" "\${arg0}" | while IFS='' read -r hook || [[ -n "\${hook}" ]]; do
 	echo "△  run hook: \${arg0} -> \${hook}" >&2
 	if [[ $# -gt 0 ]]; then
 		"${nodeBin}" "${packageManagerBin}" run "\${hook}" -- "$@"
@@ -107,8 +107,8 @@ function writeExecutable(path, ...args) {
 }
 
 console.error(`△  @zeit/git-hooks: installing base hook to ${hooksDir}`);
-writeExecutable(path.join(hooksDir, '_do_hook'), hook, 'utf-8');
-writeExecutable(path.join(hooksDir, '_detect_package_hooks'), hookDetector, 'utf-8');
+writeExecutable(path.join(hooksDir, '_do_hook.cjs'), hook, 'utf-8');
+writeExecutable(path.join(hooksDir, '_detect_package_hooks.cjs'), hookDetector, 'utf-8');
 
 // Populate each of the hooks
 function installHook(name) {
@@ -119,7 +119,7 @@ function installHook(name) {
 		return;
 	}
 
-	fs.symlinkSync('./_do_hook', hookPath);
+	fs.symlinkSync('./_do_hook.cjs', hookPath);
 }
 
 [
