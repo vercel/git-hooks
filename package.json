@@ -1,9 +1,9 @@
 {
-  "name": "@zeit/git-hooks",
+  "name": "@vercel/git-hooks",
   "version": "0.2.1",
   "description": "No nonsense Git hook management",
-  "repository": "zeit/git-hooks",
-  "author": "Josh Junon <junon@zeit.co>",
+  "repository": "vercel/git-hooks",
+  "author": "Josh Junon <josh@junon.me>",
   "license": "MIT",
   "main": "null.js",
   "scripts": {

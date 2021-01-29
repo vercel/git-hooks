@@ -20,7 +20,7 @@ const packageManagerBin = env('npm_execpath');
 const gitDir = detectGitDir();
 
 if (!gitDir || !fs.existsSync(gitDir) || !fs.statSync(gitDir).isDirectory()) {
-	console.error('△  @zeit/git-hooks: .git/hooks directory not found or is not a directory; ignoring Git hook uninstallation:', gitDir || 'reached filesystem boundary (root or drive)');
+	console.error('△  @vercel/git-hooks: .git/hooks directory not found or is not a directory; ignoring Git hook uninstallation:', gitDir || 'reached filesystem boundary (root or drive)');
 	process.exit(0);
 }
 
@@ -37,7 +37,7 @@ function uninstallHook(name) {
 	const isOneOfOurs = fs.lstatSync(hookPath).isSymbolicLink() && fs.readlinkSync(hookPath).match(/\.\/_do_hook(\.cjs)?/);
 
 	if (!isOneOfOurs) {
-		console.error(`△  @zeit/git-hooks: hook '${name}' appears to be a user hook; skipping: ${hookPath}`);
+		console.error(`△  @vercel/git-hooks: hook '${name}' appears to be a user-defined hook; skipping: ${hookPath}`);
 		return;
 	}
 
@@ -82,4 +82,4 @@ removeIfExists(path.join(hooksDir, '_detect_package_hooks.cjs'));
 removeIfExists(path.join(hooksDir, '_do_hook'));
 removeIfExists(path.join(hooksDir, '_detect_package_hooks'));
 
-console.error('△  @zeit/git-hooks: hooks uninstalled successfully');
+console.error('△  @vercel/git-hooks: hooks uninstalled successfully');
