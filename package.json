@@ -1,6 +1,6 @@
 {
   "name": "@vercel/git-hooks",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "No nonsense Git hook management",
   "repository": "vercel/git-hooks",
   "author": "Josh Junon <josh@junon.me>",
