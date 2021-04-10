@@ -1,4 +1,4 @@
-# @zeit/git-hooks
+# @vercel/git-hooks
 
 No nonsense [Git hook](https://git-scm.com/docs/githooks) management.
 
@@ -9,7 +9,7 @@ No nonsense [Git hook](https://git-scm.com/docs/githooks) management.
 Install this module, preferably as a dev-dependency:
 
 ```console
-yarn add --dev @zeit/git-hooks
+yarn add --dev @vercel/git-hooks
 ```
 
 That's it. You can now use the module in two ways:
@@ -63,4 +63,6 @@ will be the only hook that is executed.
 > as environment variables prior to installing.
 
 # License
-Copyright &copy; 2018 by ZEIT, Inc. Released under the [MIT License](LICENSE).
+Copyright &copy; 2021 by Vercel, Inc.
+
+Released under the [MIT License](LICENSE).
