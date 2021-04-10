@@ -63,7 +63,6 @@ will be the only hook that is executed.
 > as environment variables prior to installing.
 
 # License
-Copyright &copy; 2017-2020 by ZEIT, Inc.
-Copyright &copy; 2020-2021 by Vercel, Inc.
+Copyright &copy; 2021 by Vercel, Inc.
 
 Released under the [MIT License](LICENSE).
